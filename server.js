@@ -8,6 +8,9 @@ const app = express();
 //connecting the data-base:
 connectDB();
 
+//Init Middleware - bodyparser is now part of express:
+app.use(express.json( {extended: false} ));
+
 app.get("/", (req, res) => res.send('Api running'));
 
 //Define Routes: (i.e use the routes inside the api folder)
