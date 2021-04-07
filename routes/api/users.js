@@ -1,4 +1,7 @@
 const express = require('express');
+const config = require('config');
+//to get back our jwtsecret
+
 const router = express.Router();
 //note how we now uses the router to route requests towards the backend
 
@@ -13,6 +16,10 @@ const bcrypt = require('bcryptjs');
 
 //importing the express validator:
 const { check, validationResult } = require('express-validator');
+
+//json-web-token is a module that allows us to generate a unique token for each user that is signed in.
+//this way we can easiliy evaluate and access the user data using this token.
+const jwt = require('jsonwebtoken');
 
 // @route  POST api/users
 // @desc   Register route
@@ -42,7 +49,7 @@ router.post('/', [
         let user = await User.findOne({email: email});
         if(user) {
             //if usre already exists we will send back status 400 with proper message:
-            res.status(400).json({ errors: [{ msg: 'User already exists'}]})
+           return res.status(400).json({ errors: [{ msg: 'User already exists'}]})
         }
         //now if user is not found - we will get the user gravatar 
         //gravatar will just turn the new user mail into a gravatar:
@@ -71,9 +78,22 @@ router.post('/', [
         //finally we are saving the user into the DB.
         await user.save();
 
+        //assigning json-web-token:
+        //first we get user id from the db:
+        const payload = {
+            user: { id: user.id } 
+        }
+
+        //this is how we sign a user with its unique token.
+        jwt.sign(payload, config.get('jwtSecret'), { expiresIn: 360000 }, (err, token) => {
+            if (err) throw err;
+            console.log(token);
+            return res.json({ token });  
+        });
+
     } catch(err) {
         console.log(err.message);
-        res.status(500).send('Server error')
+        res.status(500).send('Server error');
     }
     
 
