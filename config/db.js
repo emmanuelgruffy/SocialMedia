@@ -4,7 +4,7 @@ const db = config.get('mongoURI'); //see how we use the config variable -> impor
 
 const connectDB = async () => {
    try {
-    await mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
+    await mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false});
     console.log('MongoDB Connected...');
    } catch(err) {
     console.log(err.message);

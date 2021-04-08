@@ -87,20 +87,15 @@ router.post('/', [
         //this is how we sign a user with its unique token.
         jwt.sign(payload, config.get('jwtSecret'), { expiresIn: 360000 }, (err, token) => {
             if (err) throw err;
-            console.log(token);
-            return res.json({ token });  
+           res.json({ token });  
         });
 
     } catch(err) {
         console.log(err.message);
         res.status(500).send('Server error');
     }
-    
-
     //remember that in order to see req.body you need to initialize app.use(express.json({extended: true/false}))
     //be sure to test this with Postman: add the header 'Content-Type' : application/json  ; and add body 'raw' json payload of some kind 
-    console.log(req.body);
-    res.send('User route');
 });
 
 module.exports = router;
