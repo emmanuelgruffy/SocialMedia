@@ -1,0 +1,29 @@
+nav .right {
+    margin-left: 83%;
+}
+
+.wider {
+    margin: auto 6%  !important ;
+    color: white !important;
+}
+
+.under-input-disclaimer {
+    font-size: small;
+}
+
+.sign-up-input {
+    height: 3rem !important;
+}
+
+.sign-up-label {
+    padding-top: 0.7rem !important;
+    padding-bottom: 0.5rem !important;
+}
+
+.sign-up-header {
+    color: #17a2b8;
+}
+
+input[type='email'] {
+    margin-top: 1%;
+}
