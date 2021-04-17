@@ -2,6 +2,10 @@ nav .right {
     margin-left: 83%;
 }
 
+.far-right {
+    margin-left: 93%;
+}
+
 .wider {
     margin: auto 6%  !important ;
     color: white !important;

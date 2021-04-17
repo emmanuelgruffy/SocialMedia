@@ -22,7 +22,7 @@ const { check, validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
 
 // @route  POST api/users
-// @desc   Register route
+// @desc   Register user
 // @access Public
 //note the validation check done as the second argument in the post function.
 //for example we are checking that the key 'name' is not empy, otherwise 'Name is required' will be prompted:
