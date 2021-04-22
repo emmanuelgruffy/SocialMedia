@@ -31,3 +31,11 @@ nav .right {
 input[type='email'] {
     margin-top: 1%;
 }
+
+.dash-header {
+    color: #17a2b8 !important;
+}
+
+.profile-header {
+    color: #17a2b8 !important;
+}

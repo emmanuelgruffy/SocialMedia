@@ -18,3 +18,13 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 
 //logout
 export const LOGOUT = 'LOGOUT';
+
+//profile
+export const GET_PROFILE = 'GET_PROFILE';
+export const PROFILE_ERROR = 'PROFILE_ERROR';
+
+//clear profile on logout (otherwise new login will get the state of last logged profile)
+export const CLEAR_PROFILE = 'CLEAR_PROFILE';
+
+//update profile
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';

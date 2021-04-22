@@ -21,7 +21,7 @@ router.get('/me', auth, async (req, res) => {
         if (!profile) {
             return res.status(400).json({ msg: 'there is no profile for this user' });
         }
-
+        res.json(profile);
     } catch (error) {
         console.log(error.message);
         res.status(500).send('Server Error')
@@ -195,8 +195,8 @@ router.put("/experience", [ auth, [
 
     try {
         const profile = await Profile.findOne({ user: req.user.id });
-
-        profile.education.unshift(newEdu); 
+//
+        profile.experience.unshift(newExp); 
         await profile.save();
         res.json(profile);
 
