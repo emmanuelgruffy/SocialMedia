@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://admin-emmanuel:mozambik@cluster-eg.gxah9.mongodb.net/SocialMedia?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken",
+    "githubClientId": "cd1f4611edb5bc84b350",
+    "githubSecret": "39f887345321ed0dc1f30aae0c92be4b59b10ed2"
+}
