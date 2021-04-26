@@ -4,7 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 
 //Redux connectivity:
 import { connect } from 'react-redux';
-import { setAlert } from '../../actions/alert';
+import setAlert from '../../actions/alert';
 import { register } from '../../actions/auth';
 //remember that if you want to use an action - you need to apss it in the connect export.
 

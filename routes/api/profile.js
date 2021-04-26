@@ -4,6 +4,7 @@ const router = express.Router();
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
+const Post = require('../../models/Posts');
 const { check, validationResult } = require('express-validator');
 
 const auth = require('../../middleware/auth');
@@ -108,7 +109,7 @@ router.post('/', [auth,
 // @access Public
 router.get("/", async (req, res) => {
     try {
-        const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+        let profiles = await Profile.find().populate('user', ['name', 'avatar']);
         res.json(profiles);
     } catch (error) {
         console.log(error.message);
@@ -142,7 +143,8 @@ router.get("/user/:user_id", async (req, res) => {
 // @access Private
 router.delete("/", auth, async (req, res) => {
     try {
-        // @todo - remove user posts
+        //Remove user posts
+        await Post.deleteMany({ user: req.user.id });
 
         //Remove Profile
         await Profile.findOneAndRemove({ user: req.user.id });
@@ -195,7 +197,7 @@ router.put("/experience", [ auth, [
 
     try {
         const profile = await Profile.findOne({ user: req.user.id });
-//
+
         profile.experience.unshift(newExp); 
         await profile.save();
         res.json(profile);

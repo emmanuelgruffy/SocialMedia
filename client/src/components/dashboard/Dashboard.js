@@ -2,17 +2,17 @@ import React, { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getCurrentProfile } from '../../actions/profile';
+import { deleteAccount, getCurrentProfile } from '../../actions/profile';
 import Spinner from '../layouts/Spinner';
 import DashboardActions from './DashboardActions';
 import Experience from './Experience';
 import Education from './Education';
 
-const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, loading } }) => {
+const Dashboard = ({ deleteAccount, getCurrentProfile, auth: { user }, profile: { profile, loading } }) => {
 
     useEffect(() => {
         getCurrentProfile();
-    }, []); //we want it to run once
+    }, [getCurrentProfile]); //we want it to run once
 
     return loading && profile === null ? 
     <Spinner /> : 
@@ -29,6 +29,12 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
             <Experience experience={profile.experience}/>
             <br/>
             <Education education={profile.education}/>
+
+            <div className="my-2">
+                <button className="btn btn-danger" onClick={() => deleteAccount()}>
+                    <i className="fas fa-user-minus"></i>{' '}Delete My Account
+                </button>
+            </div>
         </Fragment> : 
         <Fragment>
             <p>You have not yet setup a profile, please add some info</p>
@@ -50,4 +56,4 @@ const mapStateToProps = state => ({
     profile: state.profile
 })
 
-export default connect(mapStateToProps, { getCurrentProfile })(Dashboard);
+export default connect(mapStateToProps, { deleteAccount, getCurrentProfile })(Dashboard);

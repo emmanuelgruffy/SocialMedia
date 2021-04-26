@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react';
 
-export default () => (
+const Spinner = () => (
     <Fragment>
-        <div class="d-flex justify-content-center">
-            <div class="spinner-border" role="status">
+        <div className="d-flex justify-content-center">
+            <div className="spinner-border" role="status">
             </div>
         </div>
     </Fragment>
 );
+
+export default Spinner;

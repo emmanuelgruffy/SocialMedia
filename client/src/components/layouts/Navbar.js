@@ -7,19 +7,23 @@ import { logout } from "../../actions/auth";
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => { //deconstracting nested objects.
 
   const authLinks = (
-    <div className="navbar-nav right">
-      <ul className="navbar-nav far">
-        <li className="nav-link wider" aria-current="page">
-          <Link to="/dashboard">
-          <i className="fas fa-user" />{' '}
-           Dashboard
+    <div className="navbar-nav right-auth">
+      <ul className="navbar-nav">
+        <li className="nav-link-margin">
+          <Link to="/profiles" className="nav-link nav-first">
+            Developers
           </Link>
         </li>
-        <li className="nav-link wider" aria-current="page">
-          <Link onClick={logout} to="/">
-            <i className="fas fa-sign-out-alt" />{' '}
-            <span>Logout</span>
-          </Link>
+        <li className="nav-link-margin">
+          <Link to="/dashboard" className="nav-link wider" aria-current="page">
+          Dashboard</Link>
+        </li>
+        <li className="nav-link-margin">
+          <Link to="/posts" className="nav-link wider" aria-current="page">
+          Posts</Link>
+        </li>
+        <li className="nav-link-margin">
+          <Link onClick={logout} to="/" className="nav-link wider" aria-current="page">Logout</Link>
         </li>
       </ul>
     </div>
@@ -27,9 +31,19 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => { //deconstra
 
   const guestLinks = (
     <div className="navbar-nav right">
-      <Link to="/" className="nav-link wider" aria-current="page">Developes</Link>
-      <Link to='/register' className="nav-link wider" >Register</Link>
-      <Link to='/login' className="nav-link wider" >Login</Link>
+      <ul className="navbar-nav">
+        <li className="nav-link-margin">
+          <Link to="/profiles" className="nav-link nav-first">
+            Developers
+          </Link>
+        </li>
+        <li className="nav-link-margin">
+          <Link to='/register' className="nav-link wider" >Register</Link>
+        </li>
+        <li className="nav-link-margin">
+          <Link to='/login' className="nav-link wider" >Login</Link>
+        </li>
+      </ul>
     </div>
   );
 

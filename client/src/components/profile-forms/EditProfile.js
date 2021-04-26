@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile, getCurrentProfile } from '../../actions/profile';
 import { Link, withRouter } from 'react-router-dom';
-import { get } from 'mongoose';
+
 
 const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentProfile, history }) => { // history is a prop that will enable us to redirect in case needed.
     //in-order to use that we will need to use withRouter component and wrap our component in it.
@@ -60,7 +60,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
           instagram: loading || !profile.social ? '' : profile.instagram
         })
 
-    }, [loading]); //once loading prop is changed (meaning being loaded) - we want to run the useEffect.
+    }, [loading, getCurrentProfile]); //once loading prop is changed (meaning being loaded) - we want to run the useEffect.
 
     const onChange = e => {
         setFormData({...formData, [e.target.name]: e.target.value})

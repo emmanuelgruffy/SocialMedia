@@ -21,6 +21,7 @@ export const LOGOUT = 'LOGOUT';
 
 //profile
 export const GET_PROFILE = 'GET_PROFILE';
+export const GET_PROFILES = 'GET_PROFILES';
 export const PROFILE_ERROR = 'PROFILE_ERROR';
 
 //clear profile on logout (otherwise new login will get the state of last logged profile)
@@ -28,3 +29,26 @@ export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 
 //update profile
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
+
+//get github repos
+export const GET_REPOS = 'GET_REPOS';
+
+//delete account
+export const ACCOUNT_DELETED = 'ACCOUNT_DELETED';
+
+//post
+export const GET_POSTS = 'GET_POSTS';
+export const POST_ERROR = 'POST_ERROR';
+export const DELETE_POST = 'DELETE_POST';
+export const ADD_POST = 'ADD_POST';
+export const GET_POST = 'GET_POST';
+
+//likes
+export const UPDATE_LIKES = 'UPDATE_LIKES';
+
+//comments
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const REMOVE_COMMENT = 'REMOVE_COMMENT';
+
+
+

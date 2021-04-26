@@ -1,4 +1,4 @@
-import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, UPDATE_PROFILE } from "../actions/types";
+import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, UPDATE_PROFILE, GET_PROFILES, GET_REPOS } from "../actions/types";
 
 const initialState = {
     profile: null, // the logged-in user profile
@@ -12,6 +12,18 @@ export default function(state= initialState, action) {
     const { type, payload } = action;
 
     switch(type) {
+        case GET_REPOS:
+            return {
+                ...state,
+                repos: payload,
+                loading: false
+            }
+        case GET_PROFILES:
+            return {
+               ...state,
+               profiles: payload,
+               loading: false 
+            }
         case GET_PROFILE:
         case UPDATE_PROFILE:    
             return {
@@ -23,7 +35,8 @@ export default function(state= initialState, action) {
             return {
                 ...state,
                 error: payload,
-                loading: false
+                loading: false,
+                profile: null
             }; 
         case CLEAR_PROFILE:
             return {

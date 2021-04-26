@@ -2,6 +2,10 @@ nav .right {
     margin-left: 83%;
 }
 
+.right-auth {
+    margin-left: 73%;
+}
+
 .far-right {
     margin-left: 93%;
 }
@@ -9,6 +13,14 @@ nav .right {
 .wider {
     margin: auto 6%  !important ;
     color: white !important;
+}
+
+.nav-first {
+    color: white !important;
+}
+
+.nav-link-margin {
+    margin: 0 2.5% !important;
 }
 
 .under-input-disclaimer {
